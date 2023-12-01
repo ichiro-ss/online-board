@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-const baseURL = "https://railway.bulletinboard.techtrain.dev";
+import { getThreadsData } from "./apis";
 
 export const Threads = () => {
   const [threadTitles, setThreadTitles] = useState([""]);
@@ -13,8 +11,9 @@ export const Threads = () => {
   }, []);
 
   async function getThreads() {
-    axios.get(`${baseURL}/threads`).then((res) => {
-      setThreadTitles(res.data.map((item) => item.title));
+    getThreadsData().then((data) => {
+      console.log(data);
+      setThreadTitles(data.map((item) => item.title));
     });
   }
   const threadList = threadTitles.map((thread) => <li>{thread}</li>);
