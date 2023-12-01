@@ -10,7 +10,7 @@ export const Threads = () => {
 
   async function getThreads() {
     getThreadsData().then((data) => {
-      console.log(data);
+      // console.log(data);
       setThreadTitles(data.map((item) => item.title));
     });
   }
