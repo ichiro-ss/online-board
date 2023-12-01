@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+
+const baseURL = "https://railway.bulletinboard.techtrain.dev";
 
 export const Threads = () => {
-  //   const [threadUrl, setThreadUrl] = useState(
-  //     "https://railway.bulletinboard.techtrain.dev/threads"
-  //   );
-
   const [threadTitles, setThreadTitles] = useState([""]);
   let threadIds = [];
   let threadTitleStrs = [];
@@ -14,15 +13,9 @@ export const Threads = () => {
   }, []);
 
   async function getThreads() {
-    const res = await fetch(
-      "https://railway.bulletinboard.techtrain.dev/threads"
-    );
-    const data = await res.json();
-    for (let i = 0; i < data.length; i++) {
-      threadIds.push(data[i].id);
-      threadTitleStrs.push(data[i].title);
-    }
-    setThreadTitles(threadTitleStrs);
+    axios.get(`${baseURL}/threads`).then((res) => {
+      setThreadTitles(res.data.map((item) => item.title));
+    });
   }
   const threadList = threadTitles.map((thread) => <li>{thread}</li>);
 
