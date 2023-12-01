@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import { getThreadsData } from "./apis";
+import { getThreadsData } from "../Apis";
 
 export const Threads = () => {
   const [threadTitles, setThreadTitles] = useState([""]);
-  let threadIds = [];
-  let threadTitleStrs = [];
 
   useEffect(() => {
     getThreads();
