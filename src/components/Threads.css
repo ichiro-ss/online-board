@@ -1,0 +1,14 @@
+.thread {
+  color: black;
+  display: block;
+  background-color: white;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  width: 50%;
+  border-style: solid;
+}
+
+.threadList {
+  display: flex;
+}

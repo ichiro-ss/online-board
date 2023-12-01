@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <header className="header">
-      <a>Online Board</a>
+      <a className="header-left">Online Board</a>
       <Link to="/thread/new">Create A New Thread</Link>
     </header>
   );

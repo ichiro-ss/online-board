@@ -17,3 +17,11 @@ export const postThreadsData = async (data) => {
     return res.data;
   });
 };
+
+export const getThreadPostsData = async (id) => {
+  // console.log(id);
+  return axios.get(`${baseURL}/threads/${id}/posts`).then((res) => {
+    // console.log(res.data);
+    return res.data;
+  });
+};

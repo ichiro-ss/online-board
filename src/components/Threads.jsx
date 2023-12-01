@@ -1,8 +1,10 @@
+import "./Threads.css";
 import { useState, useEffect } from "react";
 import { getThreadsData } from "../Apis";
+import { Link } from "react-router-dom";
 
 export const Threads = () => {
-  const [threadTitles, setThreadTitles] = useState([""]);
+  const [threads, setThreads] = useState([""]);
 
   useEffect(() => {
     getThreads();
@@ -11,12 +13,20 @@ export const Threads = () => {
   async function getThreads() {
     getThreadsData().then((data) => {
       // console.log(data);
-      setThreadTitles(data.map((item) => item.title));
+      setThreads(data);
     });
   }
-  const threadList = threadTitles.map((thread) => <li>{thread}</li>);
+  const threadList = threads.map((thread) => (
+    <Link
+      className="thread"
+      state={{ id: thread.id, title: thread.title }}
+      to={`thread/${thread.id}`}
+    >
+      {thread.title}
+    </Link>
+  ));
 
-  return <ul>{threadList}</ul>;
+  return <div className="threadLists">{threadList}</div>;
 };
 
 export default Threads;
