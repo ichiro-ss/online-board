@@ -20,3 +20,11 @@ export const getThreadPostsData = async (id) => {
     return res.data;
   });
 };
+
+export const postThreadPostData = async (id, data) => {
+  console.log("🚀 ~ file: apis.js:25 ~ postThreadPostData ~ id:", id);
+  console.log("🚀 ~ file: apis.js:25 ~ postThreadPostData ~ data:", data);
+  return axios.post(`${baseURL}/threads/${id}/posts`, data).then((res) => {
+    return res.data;
+  });
+};

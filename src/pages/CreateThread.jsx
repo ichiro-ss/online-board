@@ -3,10 +3,6 @@ import Header from "../components/Header";
 import { useState } from "react";
 import { postThreadsData } from "../Apis";
 
-// const createNewThread = () => {
-//   console.log("created new thread");
-// };
-
 export const CreateThread = () => {
   let navigate = useNavigate();
   const [newThread, setNewThread] = useState({
@@ -15,7 +11,6 @@ export const CreateThread = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    console.log(value);
     setNewThread({
       ...newThread,
       [e.target.name]: value,
@@ -43,9 +38,8 @@ export const CreateThread = () => {
         "🚀 ~ file: CreateThread.jsx:38 ~ postThreadsData ~ data:",
         data
       );
+      navigate("/");
     });
-    navigate("/");
-    window.location.reload();
   };
 
   return (
@@ -63,11 +57,11 @@ export const CreateThread = () => {
             placeholder="Thread Title"
           />
         </label>
-        <p>
-          <Link to="/">Home</Link>
-        </p>
         <button type="submit">Create</button>
       </form>
+      <p>
+        <Link to="/">Home</Link>
+      </p>
     </>
   );
 };

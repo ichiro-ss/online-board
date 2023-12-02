@@ -1,12 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getThreadPostsData } from "../Apis";
+import "./ThreadPosts.css";
 
-export const ThreadPosts = () => {
-  const location = useLocation();
-  const { id } = location.state;
-  const { title } = location.state;
-
+export const ThreadPosts = (props) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -14,17 +11,21 @@ export const ThreadPosts = () => {
   }, []);
 
   async function getPosts() {
-    getThreadPostsData(id).then((data) => {
+    getThreadPostsData(props.id).then((data) => {
+      // console.log(
+      //   "🚀 ~ file: ThreadPosts.jsx:18 ~ getThreadPostsData ~ data:",
+      //   data
+      // );
       setPosts(data.posts);
     });
   }
 
-  const postList = posts.map((post) => {
-    <div>postList.post</div>;
-  });
+  const postList = posts.map((post) => (
+    <a className="each_post">{post.post}</a>
+  ));
+
   return (
     <>
-      <h2>{title}</h2>
       <div>{postList}</div>
     </>
   );

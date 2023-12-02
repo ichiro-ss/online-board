@@ -1,0 +1,9 @@
+.post_form {
+  width: 50%;
+  height: 100px;
+  margin: 40px;
+}
+
+.submit_btn {
+  display: block;
+}
