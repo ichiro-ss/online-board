@@ -1,12 +1,18 @@
 .thread {
   color: black;
   display: block;
-  background-color: white;
+  background-color: rgba(181, 181, 181, 0.408);
   text-align: center;
   margin: auto;
   padding: 10px;
   width: 50%;
   border-style: solid;
+  transition: all 0.3s;
+}
+.thread:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  width: 52%;
 }
 
 .threadList {

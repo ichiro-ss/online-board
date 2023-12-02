@@ -1,9 +1,19 @@
 .post_form {
-  width: 50%;
-  height: 100px;
-  margin: 40px;
+  display: block;
+  width: 15rem;
+  height: 10rem;
+  margin: 0 auto;
 }
 
 .submit_btn {
   display: block;
+  background-color: rgba(255, 255, 255, 0.488);
+  border-radius: 10px;
+
+  margin: 10px auto;
+}
+.submit_btn:hover {
+  background-color: rgb(111, 111, 111);
+  border: 1px solid #333;
+  color: white;
 }

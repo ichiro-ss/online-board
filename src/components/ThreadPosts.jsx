@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getThreadPostsData } from "../Apis";
 import "./ThreadPosts.css";
@@ -8,7 +7,7 @@ export const ThreadPosts = (props) => {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [props.updatePosts]);
 
   async function getPosts() {
     getThreadPostsData(props.id).then((data) => {
@@ -24,11 +23,7 @@ export const ThreadPosts = (props) => {
     <a className="each_post">{post.post}</a>
   ));
 
-  return (
-    <>
-      <div>{postList}</div>
-    </>
-  );
+  return <>{postList}</>;
 };
 
 export default ThreadPosts;

@@ -4,7 +4,7 @@ import "./PostForm.css";
 
 export const PostForm = (props) => {
   const [newPost, setNewPost] = useState({
-    post: "init",
+    post: "",
   });
 
   const handleChange = (e) => {
@@ -28,6 +28,10 @@ export const PostForm = (props) => {
         "🚀 ~ file: PostForm.jsx:29 ~ postThreadPostData ~ data:",
         data
       );
+      props.setUpdatePosts(!props.updatePosts);
+      setNewPost({
+        post: "",
+      });
     });
   };
 
@@ -38,7 +42,7 @@ export const PostForm = (props) => {
           <textarea
             type="text"
             name="post"
-            // value={newThread.title}
+            value={newPost.post}
             onChange={handleChange}
             id="post"
             placeholder="Post Something..."

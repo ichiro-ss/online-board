@@ -2,6 +2,10 @@
   display: flex;
 }
 
-/* .post_form {
+.thread_posts {
+  flex: auto;
+}
 
-} */
+.post_comp {
+  width: 20rem;
+}
