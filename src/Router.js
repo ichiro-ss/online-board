@@ -9,7 +9,7 @@ export const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/thread/new" element={<CreateThread />} />
-        <Route path="/thread/:thread_d" element={<ThreadPosts />} />
+        <Route path="/thread/:thread_id" element={<ThreadPosts />} />
       </Routes>
     </BrowserRouter>
   );

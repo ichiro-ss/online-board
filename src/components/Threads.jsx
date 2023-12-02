@@ -10,12 +10,14 @@ export const Threads = () => {
     getThreads();
   }, []);
 
+  //* get Threads {title} from api
   async function getThreads() {
     getThreadsData().then((data) => {
-      // console.log(data);
+      // console.log("🚀 ~ file: Threads.jsx:15 ~ getThreadsData ~ data:", data)
       setThreads(data);
     });
   }
+
   const threadList = threads.map((thread) => (
     <Link
       className="thread"
@@ -26,7 +28,7 @@ export const Threads = () => {
     </Link>
   ));
 
-  return <div className="threadLists">{threadList}</div>;
+  return <div className="threadList">{threadList}</div>;
 };
 
 export default Threads;

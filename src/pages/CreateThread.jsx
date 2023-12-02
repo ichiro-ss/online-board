@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { useState } from "react";
 import { postThreadsData } from "../Apis";
@@ -8,6 +8,7 @@ import { postThreadsData } from "../Apis";
 // };
 
 export const CreateThread = () => {
+  let navigate = useNavigate();
   const [newThread, setNewThread] = useState({
     title: "init",
   });
@@ -22,16 +23,29 @@ export const CreateThread = () => {
   };
 
   const handleSubmit = (e) => {
+    // without preventDefault, [Error] WebSocket connection to 'ws://localhost:3000/ws' failed: WebSocket is closed due to suspension.
     e.preventDefault();
+    e.stopPropagation();
     const threadData = {
       title: newThread.title,
     };
-    // console.log("req:");
-    // console.log(newThread);
-    // console.log(threadData);
+    // console.log(
+    //   "🚀 ~ file: CreateThread.jsx:29 ~ handleSubmit ~ threadData:",
+    //   threadData
+    // );
+    // console.log(
+    //   "🚀 ~ file: CreateThread.jsx:29 ~ handleSubmit ~ newThread:",
+    //   newThread
+    // );
+
     postThreadsData(threadData).then((data) => {
-      console.log(data);
+      console.log(
+        "🚀 ~ file: CreateThread.jsx:38 ~ postThreadsData ~ data:",
+        data
+      );
     });
+    navigate("/");
+    window.location.reload();
   };
 
   return (

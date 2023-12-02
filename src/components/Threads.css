@@ -10,5 +10,5 @@
 }
 
 .threadList {
-  display: flex;
+  display: block;
 }

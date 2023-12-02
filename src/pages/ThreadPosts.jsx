@@ -15,7 +15,6 @@ export const ThreadPosts = () => {
 
   async function getPosts() {
     getThreadPostsData(id).then((data) => {
-      // console.log(data);
       setPosts(data.posts);
     });
   }
